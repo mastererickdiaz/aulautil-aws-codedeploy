@@ -1,0 +1,26 @@
+version: 0.0
+os: linux
+files:
+  - source: ./
+    destination: /apps/tmp_web/
+    overwrite: true
+permissions:
+  - object: /apps/web
+    owner: ec2-user
+    group: ec2-user
+hooks:
+  BeforeInstall:
+    - location: scripts/aws_cd_mkdir
+      timeout: 300
+      runas: ec2-user
+  AfterInstall:
+    - location: scripts/aws_cd_rsync
+      timeout: 300
+      runas: ec2-user
+    - location: scripts/aws_cd_rmdir
+      timeout: 300
+      runas: ec2-user
+  ApplicationStart:
+    - location: scripts/aws_cd_restart
+      timeout: 300
+      runas: ec2-user

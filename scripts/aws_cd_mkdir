@@ -1,0 +1,4 @@
+#!/bin/bash
+
+rm -rf /apps/tmp_web
+mkdir -p /apps/tmp_web

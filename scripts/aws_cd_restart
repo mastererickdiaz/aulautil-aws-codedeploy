@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "## Restart - start ##"
+
+sudo /etc/init.d/weclub_web restart
+sudo /etc/init.d/weclub_sidekiq restart
+
+echo "## Restart - end ##"

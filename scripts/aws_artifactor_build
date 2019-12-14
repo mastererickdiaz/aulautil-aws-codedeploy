@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Usage
+# ./scripts/aws_artifactor_build <build number>
+# ./scripts/aws_artifactor_build 7
+
+zip -r $1 ./ -x ./.git/**\* -x ./log/**\* -x ./logs/**\*
